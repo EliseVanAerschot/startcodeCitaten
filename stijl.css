@@ -1,0 +1,92 @@
+:root {
+  --titelkleur: black;
+  --headerkleur: #1058b7;
+  --navhoverbgkleur: #0d4083;
+  --navhover: rgb(249, 229, 12);
+  --afronding: 8px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'PT Serif', Serif;
+  line-height: 1.5;
+  font-size: 1.1rem;
+}
+
+header {
+  margin-bottom: 1em;
+}
+
+header,
+footer {
+  background-color: var(--headerkleur);
+  box-shadow: 0 0 5px #999;
+}
+
+header div.wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+header img {
+  width: 45px;
+  height: 45px;
+  display: block;
+}
+
+h1,
+h2,
+h3 {
+  font-family: 'Oswald', Sans-Serif;
+  font-weight: 300;
+  color: var(--titelkleur);
+  line-height: 1.1;
+}
+
+h1 {
+  margin: 1rem 0;
+  font-size: 3rem;
+}
+
+h2 {
+  margin-top: 1em;
+  font-size: 2rem;
+}
+
+nav ul {
+  display: flex;
+  gap: 0.5em;
+  flex-direction: row;
+  list-style-type: none;
+  justify-content: end;
+}
+
+nav ul li a {
+  display: block;
+  padding: 0.5em;
+  text-decoration: none;
+  color: #fff;
+  border-radius: var(--afronding);
+}
+
+nav ul li a:hover {
+  color: var(--navhover);
+  background-color: var(--navhoverbgkleur);
+}
+
+nav li.hier a {
+  background-color: #fff;
+  color: var(--headerkleur);
+}
+
+.wrapper {
+  max-width: 50em;
+  margin: 0px auto;
+  padding: 0.5em;
+}
