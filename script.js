@@ -36,3 +36,11 @@ function voegCitaatToe(titel, tekst, auteur, taal){
 
 }
 voegCitaatToe('Penser', 'Je pense, donc je suis.', 'René Descartes', 'fr');
+
+/*const footer = document.createElement('footer');
+footer.innerHTML = '<p>&copy; 2024 - Elise</p>';
+document.body.insertAdjacentElement('beforeend', footer);*/
+
+/* kortere , betere notatie voor het toevoegen van de footer*/
+document.body.insertAdjacentHTML('beforeend','<footer><p>&copy; 2024 - Elise</p></footer>');
+

@@ -28,6 +28,12 @@ footer {
   box-shadow: 0 0 5px #999;
 }
 
+footer{
+  padding: 1em;
+  text-align: center;
+  color: #fff;
+}
+
 header div.wrapper {
   display: flex;
   flex-direction: row;
