@@ -14,4 +14,4 @@ artikel.classList.add(`${citaattaal1}`);
 document.querySelector('section.citaten').appendChild(artikel);
 
 /* element verwijderen */
-document.querySelector('#geencitaten').remove;
+document.querySelector('#geencitaten').remove();
