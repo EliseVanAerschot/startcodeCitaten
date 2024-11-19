@@ -12,3 +12,6 @@ const artikel = document.createElement('article');
 artikel.innerHTML = `<h2>${citaattitel1}</h2><p>${citaattekst1}</p><p class="auteur">${citaatauteur1}</p>`;
 artikel.classList.add(`${citaattaal1}`);
 document.querySelector('section.citaten').appendChild(artikel);
+
+/* element verwijderen */
+document.querySelector('#geencitaten').remove;
