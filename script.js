@@ -44,3 +44,19 @@ document.body.insertAdjacentElement('beforeend', footer);*/
 /* kortere , betere notatie voor het toevoegen van de footer*/
 document.body.insertAdjacentHTML('beforeend','<footer><p>&copy; 2024 - Elise</p></footer>');
 
+/* click event: random kleur voor titel */
+const h1Titel = document.querySelector('h1');
+h1Titel.addEventListener('click', () => {
+    const rood = Math.round(Math.random()*255);
+    const groen = Math.round(Math.random()*255);
+    const blauw = Math.round(Math.random()*255);
+    h1Titel.style.color = `rgb(${rood},${groen},${blauw})`;
+});
+
+/* Toggle button voor drie kolommen */
+
+const kolommenKnop = document.querySelector('#kolommen');
+kolommenKnop.addEventListener('click', () => {
+    document.querySelector('section.citaten').classList.toggle('driekol')
+})
+

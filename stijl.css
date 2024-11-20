@@ -112,3 +112,25 @@ p.auteur {
 p.auteur::before {
   content: '-';
 }
+
+button{
+  padding: 5px 1em;
+  font-family: 'PT Serif', serif;
+  font-size: 1.1rem;
+  background-color: var(--headerkleur);
+  color: #fff;
+  border-radius: var(--afronding);
+  border: 1px solid transparent;
+
+}
+
+button:hover {
+  cursor: pointer;
+  background-color: #054674;
+}
+
+.citaten.driekol {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 1em;
+}
