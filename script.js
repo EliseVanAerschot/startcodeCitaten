@@ -60,3 +60,12 @@ kolommenKnop.addEventListener('click', () => {
     document.querySelector('section.citaten').classList.toggle('driekol')
 })
 
+/* Event object */
+const grijsbalk = document.querySelector('#grijstinten');
+grijsbalk.addEventListener('mousemove', (e) => {
+    console.log(e.offsetX);
+    grijsbalk.style.backgroundColor = `rgb(${e.offsetX},${e.offsetX},${e.offsetX})`;
+    document.querySelector('article').style.border = `2px solid rgb(${e.offsetX},${e.offsetX},${e.offsetX})`;
+} )
+
+

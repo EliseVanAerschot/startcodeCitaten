@@ -134,3 +134,10 @@ button:hover {
   grid-template-columns: 1fr 1fr 1fr;
   gap: 1em;
 }
+
+#grijstinten {
+  height: 40px;
+  width: 255px;
+  border: 1px solid #000;
+  margin: 1em 0;
+}
