@@ -35,6 +35,38 @@ alleCitaten.forEach(voegCitaatObjectToe);
 
 document.querySelector('#aantalCitaten').innerText += alleCitaten.length;
 
+/*Zoek citaat met langste tekst 
+function vindtLangsteCitaat() {
+    let grootstelengte = 0;
+    let langsteCitaat 
+    for (const citaat of alleCitaten) {
+        if (citaat.tekst.length > grootstelengte){
+            grootstelengte = citaat.tekst.length
+            langsteCitaat = citaat;
+        }
+    }
+    return langsteCitaat;
+}*/
+
+
+
+/*Zoek citaat met langste tekst met foreach*/
+const vindtLangsteCitaat2 = () => {
+    let langsteCitaat = {tekst: ''};
+    alleCitaten.forEach((citaat) => {
+        if (citaat.tekst.length > langsteCitaat.tekst.length){
+            langsteCitaat = citaat;
+        }
+    });
+    return langsteCitaat;
+};
+
+function toonLangsteCitaat(){
+    const langsteCit = vindtLangsteCitaat2();
+    document.querySelector('#langsteCitaat').innerText += `(${langsteCit.tekst.length} letters), auteur: ${langsteCit.auteur}, "${langsteCit.tekst}"`;
+};
+toonLangsteCitaat();
+
 /* kortere , betere notatie voor het toevoegen van de footer*/
 document.body.insertAdjacentHTML('beforeend','<footer><p>&copy; 2024 - Elise</p></footer>');
 
