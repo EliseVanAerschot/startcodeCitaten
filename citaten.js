@@ -1,5 +1,5 @@
 /* citaat array */
-const alleCitaten = [
+export const alleCitaten = [
 {
     titel: 'Uitgelegd',
     tekst: 'Als ik zou willen dat je het begreep, zou ik het beter hebben uitgelegd.',

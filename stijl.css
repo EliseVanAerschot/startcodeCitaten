@@ -4,6 +4,11 @@
   --navhoverbgkleur: #0d4083;
   --navhover: rgb(249, 229, 12);
   --afronding: 8px;
+  --nl: #f00;
+  --en: rgb(2, 81, 23);
+  --fr: rgb(223, 230, 22);
+  --la: rgb(64,10, 164);
+  --sv: rgb(107,8,67);
 }
 
 * {
@@ -96,12 +101,18 @@ nav li.hier a {
   padding: 0.5em;
 }
 
+.citaten {
+  margin-bottom: 2em;
+}
+
 .citaten article {
   background-color: #f5f5f5;
   padding: 1em;
   box-shadow: 0 0 3px #999;
   border-radius: var(--afronding);
   margin-bottom: 1em;
+  border-left-width: 10px;
+  border-left-style: solid;
 }
 
 p.auteur {
@@ -111,6 +122,11 @@ p.auteur {
 
 p.auteur::before {
   content: '-';
+}
+
+ul.vb {
+  list-style-type: none;
+  margin-bottom: 2em;
 }
 
 button{
@@ -135,9 +151,18 @@ button:hover {
   gap: 1em;
 }
 
-#grijstinten {
-  height: 40px;
-  width: 255px;
-  border: 1px solid #000;
-  margin: 1em 0;
+article.nl {
+  border-left-color: var(--nl) ;
+}
+article.en {
+  border-left-color: var(--en) ;
+}
+article.fr {
+  border-left-color: var(--fr) ;
+}
+article.la {
+  border-left-color: var(--la) ;
+}
+article.sv {
+  border-left-color: var(--sv) ;
 }

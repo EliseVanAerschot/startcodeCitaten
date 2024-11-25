@@ -1,3 +1,5 @@
+import { alleCitaten } from "./citaten.js";
+
 /*testcode om uit te teste of script werkt : console.log('Het werkt!!')*/
 
 /* h1 aanpassen*/
@@ -31,10 +33,7 @@ function voegCitaatObjectToe(cit){
 
 alleCitaten.forEach(voegCitaatObjectToe);
 
-
-/*const footer = document.createElement('footer');
-footer.innerHTML = '<p>&copy; 2024 - Elise</p>';
-document.body.insertAdjacentElement('beforeend', footer);*/
+document.querySelector('#aantalCitaten').innerText += alleCitaten.length;
 
 /* kortere , betere notatie voor het toevoegen van de footer*/
 document.body.insertAdjacentHTML('beforeend','<footer><p>&copy; 2024 - Elise</p></footer>');
@@ -55,12 +54,5 @@ kolommenKnop.addEventListener('click', () => {
     document.querySelector('section.citaten').classList.toggle('driekol')
 })
 
-/* Event object */
-const grijsbalk = document.querySelector('#grijstinten');
-grijsbalk.addEventListener('mousemove', (e) => {
-    console.log(e.offsetX);
-    grijsbalk.style.backgroundColor = `rgb(${e.offsetX},${e.offsetX},${e.offsetX})`;
-    document.querySelector('article').style.border = `2px solid rgb(${e.offsetX},${e.offsetX},${e.offsetX})`;
-} )
 
 
