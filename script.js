@@ -31,7 +31,7 @@ function voegCitaatObjectToe(cit){
     voegCitaatObjectToe(citaat);
 };*/
 
-alleCitaten.forEach(voegCitaatObjectToe);
+
 
 document.querySelector('#aantalCitaten').innerText += alleCitaten.length;
 
@@ -66,6 +66,21 @@ function toonLangsteCitaat(){
     document.querySelector('#langsteCitaat').innerText += `(${langsteCit.tekst.length} letters), auteur: ${langsteCit.auteur}, "${langsteCit.tekst}"`;
 };
 toonLangsteCitaat();
+ 
+const nieuwCitaat = {
+    titel: 'test',
+    tekst: 'Test 1 2 3',
+    auteur: 'IKKE',
+    taal: 'nl',
+};
+
+alleCitaten.push(nieuwCitaat);
+console.log(alleCitaten);
+
+alleCitaten.forEach(voegCitaatObjectToe);
+
+
+
 
 /* kortere , betere notatie voor het toevoegen van de footer*/
 document.body.insertAdjacentHTML('beforeend','<footer><p>&copy; 2024 - Elise</p></footer>');
