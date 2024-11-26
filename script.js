@@ -32,21 +32,9 @@ function voegCitaatObjectToe(cit){
 };*/
 
 
-
-document.querySelector('#aantalCitaten').innerText += alleCitaten.length;
-
-/*Zoek citaat met langste tekst 
-function vindtLangsteCitaat() {
-    let grootstelengte = 0;
-    let langsteCitaat 
-    for (const citaat of alleCitaten) {
-        if (citaat.tekst.length > grootstelengte){
-            grootstelengte = citaat.tekst.length
-            langsteCitaat = citaat;
-        }
-    }
-    return langsteCitaat;
-}*/
+function toonAantalCitaten(){
+    document.querySelector('#aantalCitaten').innerText += alleCitaten.length;
+}
 
 
 
@@ -65,7 +53,7 @@ function toonLangsteCitaat(){
     const langsteCit = vindtLangsteCitaat2();
     document.querySelector('#langsteCitaat').innerText += `(${langsteCit.tekst.length} letters), auteur: ${langsteCit.auteur}, "${langsteCit.tekst}"`;
 };
-toonLangsteCitaat();
+
  
 const nieuwCitaat = {
     titel: 'test',
@@ -74,10 +62,16 @@ const nieuwCitaat = {
     taal: 'nl',
 };
 
+/*Voeg nieuw citaat achteraan toe */
 alleCitaten.push(nieuwCitaat);
-console.log(alleCitaten);
 
+function toonAlleInfo() {
 alleCitaten.forEach(voegCitaatObjectToe);
+toonAantalCitaten();
+toonLangsteCitaat();
+}
+
+toonAlleInfo();
 
 
 
@@ -94,12 +88,6 @@ h1Titel.addEventListener('click', () => {
     h1Titel.style.color = `rgb(${rood},${groen},${blauw})`;
 });
 
-/* Toggle button voor drie kolommen */
-
-const kolommenKnop = document.querySelector('#kolommen');
-kolommenKnop.addEventListener('click', () => {
-    document.querySelector('section.citaten').classList.toggle('driekol')
-})
 
 
 

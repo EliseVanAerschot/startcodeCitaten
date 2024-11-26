@@ -145,6 +145,12 @@ button:hover {
   background-color: #054674;
 }
 
+section.citaten {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 1em;
+}
+
 .citaten.driekol {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
@@ -166,3 +172,15 @@ article.la {
 article.sv {
   border-left-color: var(--sv) ;
 }
+
+@media (max-width: 45em) {
+  section.citaten {
+    grid-template-columns: 1fr 1fr;
+  }
+};
+
+@media (max-width: 30em) {
+  section.citaten {
+    grid-template-columns: 1fr;
+  }
+};
