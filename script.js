@@ -65,11 +65,19 @@ const nieuwCitaat = {
 /*Voeg nieuw citaat achteraan toe */
 alleCitaten.push(nieuwCitaat);
 
+
 function toonAlleInfo() {
 alleCitaten.forEach(voegCitaatObjectToe);
 toonAantalCitaten();
 toonLangsteCitaat();
 }
+
+const telLetters = () => {
+    const aantalLetters = document.querySelector('form.zoektekst > input[type=text]').value.length;
+    document.querySelector('#aantalLetters').innerText = aantalLetters;
+};
+
+document.querySelector('form.zoektekst > input').addEventListener('input',telLetters);
 
 toonAlleInfo();
 
