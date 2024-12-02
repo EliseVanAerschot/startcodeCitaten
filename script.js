@@ -2,6 +2,9 @@ import { alleCitaten } from "./citaten.js";
 
 /*testcode om uit te teste of script werkt : console.log('Het werkt!!')*/
 
+const citatenSectie = document.querySelector('.wrapper section.citaten');
+console.log(citatenSectie);
+
 /* h1 aanpassen*/
 document.querySelector('h1').innerText = 'Inspirerende citaten';
 
@@ -33,7 +36,7 @@ function voegCitaatObjectToe(cit){
 
 
 function toonAantalCitaten(){
-    document.querySelector('#aantalCitaten').innerText += alleCitaten.length;
+    document.querySelector('#aantalCitaten').innerText = `Totaal aantal citaten: ${alleCitaten.length}`;
 }
 
 
@@ -51,7 +54,7 @@ const vindtLangsteCitaat2 = () => {
 
 function toonLangsteCitaat(){
     const langsteCit = vindtLangsteCitaat2();
-    document.querySelector('#langsteCitaat').innerText += `(${langsteCit.tekst.length} letters), auteur: ${langsteCit.auteur}, "${langsteCit.tekst}"`;
+    document.querySelector('#langsteCitaat').innerText = `Langste citaat: (${langsteCit.tekst.length} letters), auteur: ${langsteCit.auteur}, "${langsteCit.tekst}"`;
 };
 
  
@@ -65,21 +68,46 @@ const nieuwCitaat = {
 /*Voeg nieuw citaat achteraan toe */
 alleCitaten.push(nieuwCitaat);
 
+const checkboxes = document.querySelectorAll('input[name=taal]');
+  checkboxes.forEach((checkbox) => {checkbox.addEventListener('change', () => {
+    citatenSectie.dispatchEvent(new CustomEvent('citatenUpdate'));
+  });
+});
 
-function toonAlleInfo() {
-alleCitaten.forEach(voegCitaatObjectToe);
-toonAantalCitaten();
-toonLangsteCitaat();
+function maakTalenLijst() {
+    const alleTalen = [];
+    checkboxes.forEach((checkbox) => {
+        if (checkbox.checked){
+            alleTalen.push(checkbox.value);
+        }
+    });
+    return alleTalen;
+}
+
+citatenSectie.addEventListener('citatenUpdate', toonCitaten);
+
+function toonCitaten() {
+    const geslecteerdeTalen = maakTalenLijst();
+    console.log(geslecteerdeTalen);
+    document.querySelector('section.citaten').innerHTML = '';
+    alleCitaten.forEach((cit) => {
+        if (cit.tekst.includes(document.querySelector('form.zoektekst > input[type=text]').value) && geslecteerdeTalen.includes(cit.taal)){
+            voegCitaatObjectToe(cit);
+        }
+    });
 }
 
 const telLetters = () => {
     const aantalLetters = document.querySelector('form.zoektekst > input[type=text]').value.length;
     document.querySelector('#aantalLetters').innerText = aantalLetters;
+    toonCitaten();
 };
 
 document.querySelector('form.zoektekst > input').addEventListener('input',telLetters);
 
-toonAlleInfo();
+toonCitaten();
+toonAantalCitaten();
+toonLangsteCitaat();
 
 
 

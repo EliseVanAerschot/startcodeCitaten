@@ -187,6 +187,26 @@ input {
   padding: 5px;
   margin-bottom: 1.5em;
 }
+input[type=checkbox] {
+  margin-right: 0.5em;
+  margin-bottom: 1em;
+}
+
+label.nl {
+  color: var(--nl);
+}
+label.en {
+  color: var(--en);
+}
+label.fr {
+  color: var(--fr);
+}
+label.la {
+  color: var(--la);
+}
+label.sv {
+  color: var(--sv);
+}
 
 @media (max-width: 45em) {
   section.citaten {
