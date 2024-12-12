@@ -115,6 +115,27 @@ nav li.hier a {
   border-left-style: solid;
 }
 
+article {
+  position: relative;
+}
+
+article svg {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  width: 28px;
+  height: 28px;
+}
+
+article svg:hover {
+  cursor: pointer;
+  top: 3px;
+  right: 3px;
+  width: 32px;
+  height: 32px;
+  transition-duration: 300ms;
+}
+
 p.auteur {
   font-style: italic;
   text-align: right;
@@ -160,17 +181,32 @@ section.citaten {
 article.nl {
   border-left-color: var(--nl) ;
 }
+article.nl svg {
+  stroke:var(--nl);
+}
 article.en {
   border-left-color: var(--en) ;
+}
+article.en svg {
+  stroke:var(--en);
 }
 article.fr {
   border-left-color: var(--fr) ;
 }
+article.fr svg {
+  stroke:var(--fr);
+}
 article.la {
   border-left-color: var(--la) ;
 }
+article.la svg {
+  stroke:var(--la);
+}
 article.sv {
   border-left-color: var(--sv) ;
+}
+article.sv svg {
+  stroke:var(--sv);
 }
 
 form {
