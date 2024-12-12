@@ -143,6 +143,20 @@ h1Titel.addEventListener('click', () => {
     h1Titel.style.color = `rgb(${rood},${groen},${blauw})`;
 });
 
+const toonTijd = () => {
+    const nu = new Date();
+    const uur = nu.getHours();
+    const minuten = String(nu.getMinutes()).padStart(2,'0');
+    const seconden = String(nu.getSeconds()).padStart(2,'0');
+    const opties ={
+        weekday: 'long',
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric',
+    };
+    const dag = nu.toLocaleDateString('nl-NL', opties);
+    document.querySelector('footer').innerHTML = `<p> ${dag} &mdash; ${uur}:${minuten}:${seconden}</p>`
+};
 
-
+const intervalTijd = setInterval(toonTijd, 1000);
 
