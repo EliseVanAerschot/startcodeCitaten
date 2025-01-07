@@ -4,6 +4,7 @@ import { alleCitaten } from "./citaten.js";
 
 const citatenSectie = document.querySelector('.wrapper section.citaten');
 console.log(citatenSectie);
+const update = new CustomEvent('citatenUpdate');
 
 /* h1 aanpassen*/
 document.querySelector('h1').innerText = 'Inspirerende citaten';
@@ -84,13 +85,51 @@ function verwijderCitaat(verwijderTitel){
     );
     alleCitaten.splice(plaats,1);
     citatenSectie.dispatchEvent(new CustomEvent('citatenUpdate'));
-    toonAantalCitaten();
-    toonLangsteCitaat();
 };
+
+function toonMelding(soort, melding){
+    document.querySelector('#feedback').innerHTML =`<p class="${soort}">${melding}</p>`
+}
+
+function controleerTaal(taal) {
+    const geldigeTalen = ['nl','en', 'fr','la', 'sv'];
+    return geldigeTalen.includes(taal);
+}
+
+function voegToe(){
+    const nieuwCitaat = {
+    titel: document.querySelector('#titel').value,
+    tekst: document.querySelector('#citaat').value,
+    auteur: document.querySelector('#auteur').value,
+    taal: document.querySelector('#taal').value,
+    };
+
+    if(nieuwCitaat.titel && nieuwCitaat.tekst && nieuwCitaat.auteur && nieuwCitaat.taal && controleerTaal(nieuwCitaat.taal))
+        {   
+            const alleTitels = [];
+            alleCitaten.forEach((cit) => {alleTitels.push(cit.titel); });
+            console.log(alleTitels);
+            if (!alleTitels.includes(nieuwCitaat.titel)){
+                alleCitaten.push(nieuwCitaat);
+                citatenSectie.dispatchEvent(update);
+                toonMelding('succes', 'Nieuw citaat toegevoegd.');
+            }else {
+                toonMelding('fout', 'Deze titel bestaat al!')
+            }
+        } else {
+            toonMelding('fout', 'Niet alle velden ingevuld of ongeldige taal! Nieuw citaat niet toegevoegd.');
+        }
+    
+};
+
+document.querySelector('form.add').addEventListener('submit', (event) => {
+    event.preventDefault();
+    voegToe();
+});
 
 const checkboxes = document.querySelectorAll('input[name=taal]');
   checkboxes.forEach((checkbox) => {checkbox.addEventListener('change', () => {
-    citatenSectie.dispatchEvent(new CustomEvent('citatenUpdate'));
+    citatenSectie.dispatchEvent(update);
   });
 });
 
@@ -114,6 +153,8 @@ function toonCitaten() {
             voegCitaatObjectToe(cit);
         }
     });
+    toonAantalCitaten();
+    toonLangsteCitaat();
 }
 
 const telLetters = () => {

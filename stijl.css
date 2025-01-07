@@ -228,6 +228,30 @@ input[type=checkbox] {
   margin-bottom: 1em;
 }
 
+#titel, #auteur {
+  width: 15em;
+}
+#taal {
+  width: 2em;
+}
+input[type="submit"] {
+  width: 12em;
+}
+p.succes {
+  color: green;
+  margin-bottom: 2em;
+  border: 1px solid green;
+  padding: 5px;
+}
+
+p.fout {
+  color: red;
+  margin-bottom: 2em;
+  border: 1px solid red;
+  padding: 5px;
+}
+
+
 label.nl {
   color: var(--nl);
 }
